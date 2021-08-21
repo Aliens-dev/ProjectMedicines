@@ -16,7 +16,6 @@
 <body>
     <div>
         @yield('content')
-        @include('partials.messages')
     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

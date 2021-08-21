@@ -16,17 +16,17 @@ class PatientController extends Controller
     public function index()
     {
         $patients = Patient::paginate(20);
-        return view('dashboard.patients.index');
+        return view('dashboard.patients.index', compact('patients'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function create()
     {
-        //
+        return view('dashboard.patients.create');
     }
 
     /**
@@ -37,7 +37,23 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'first_name' => 'required',
+            'last_name'  => 'required',
+            'national_id' => 'required',
+            'birthday'=> 'required',
+            'age' => 'required',
+            'state_of_residence' => 'required',
+            'city_of_residence' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'first_injection_date' => 'required',
+            'next_appointment' => 'required',
+        ];
+
+        $request->validate($rules);
+
+
     }
 
     /**
