@@ -14,7 +14,15 @@
         <div class="navbar-block">
             <livewire:notification-component />
             <div class="navbar-item dropleft">
-                
+                <div class="dropdown-toggle"
+                     type="button"
+                     id="dropdownMenuButton"
+                     data-toggle="dropdown"
+                     aria-haspopup="true"
+                     aria-expanded="false"
+                >
+                    <span>{{ auth()->user()->first_name }}</span>
+                </div>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a href="" class="dropdown-item">
                         My Account

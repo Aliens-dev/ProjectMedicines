@@ -15,11 +15,17 @@
                 </div>
                 <div class="text">Dashboard</div>
             </a>
-            <a  href="" class="sidebar-item ripple">
+            <a  href="{{ route('patients.index') }}" class="sidebar-item ripple">
                 <div class="icon">
                     <img src="/assets/img/group.svg" width="20" height="20" alt="">
                 </div>
                 <div class="text">Patients</div>
+            </a>
+            <a  href="{{ route('deseases.index') }}" class="sidebar-item ripple">
+                <div class="icon">
+                    <img src="/assets/img/group.svg" width="20" height="20" alt="">
+                </div>
+                <div class="text">Les Maladies</div>
             </a>
             <a  href="" class="sidebar-item ripple">
                 <div class="icon">
