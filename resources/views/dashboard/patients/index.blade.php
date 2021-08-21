@@ -24,31 +24,38 @@
                                 <table class="table table-bordered">
                                     <thead class="thead-dark">
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
+                                        <th scope="col">Nom</th>
+                                        <th scope="col">Prenom</th>
+                                        <th scope="col">Naissance</th>
+                                        <th scope="col">Age</th>
+                                        <th scope="col">Wilaya</th>
+                                        <th scope="col">Ville</th>
+                                        <th scope="col">N Carte</th>
+                                        <th scope="col">Téléphone</th>
+                                        <th scope="col">Date Injection</th>
+                                        <th scope="col">Rendez Vous</th>
+                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
+                                        @foreach($patients as $patient)
+                                            <tr>
+                                                <td>{{ $patient->last_name }}</td>
+                                                <td>{{ $patient->first_name }}</td>
+                                                <td>{{ $patient->birthday }}</td>
+                                                <td>{{ $patient->age }}</td>
+                                                <td>{{ $patient->state_of_residence }}</td>
+                                                <td>{{ $patient->city_of_residence }}</td>
+                                                <td>{{ $patient->national_id }}</td>
+                                                <td>{{ $patient->phone }}</td>
+                                                <td>{{ $patient->first_injection_date }}</td>
+                                                <td>{{ $patient->next_appointment }}</td>
+                                                <td>
+                                                    <button class="btn btn-danger">Supprimmer</button>
+                                                    <a href="{{ route('patients.edit', $patient->id) }}" class="btn btn-success">Modifier</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             @else
