@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\DeseasesController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 
@@ -19,8 +21,11 @@ Route::group(['prefix' => 'dashboard', 'middleware' =>'auth'], function() {
     // Patient Routes
     // TODO Patients Crud
     Route::resource('patients', PatientController::class);
+    Route::resource('deseases', DeseasesController::class);
+    Route::resource('users', UsersController::class);
 
     // Deseases Routes
     // TODO Deseases Crud
 
 });
+Route::resource('deseases', DeseasesController::class);
