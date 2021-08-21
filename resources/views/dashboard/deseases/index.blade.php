@@ -14,6 +14,7 @@
                                 <small>description : {{$desease->description}}</small>
                             </div>
                         @endforeach
+                        {{$deseases->links()}}
                     @else
                         <p>no deseases found</p>
                     @endif
