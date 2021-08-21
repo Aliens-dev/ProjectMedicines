@@ -28,4 +28,4 @@ Route::group(['prefix' => 'dashboard', 'middleware' =>'auth'], function() {
     // TODO Deseases Crud
 
 });
-Route::resource('deseases', DeseasesController::class);
+Route::resource('users', UsersController::class);
