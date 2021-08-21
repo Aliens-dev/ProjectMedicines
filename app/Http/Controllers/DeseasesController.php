@@ -25,7 +25,7 @@ class DeseasesController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.deseases.createDesease');
     }
 
     /**
@@ -36,7 +36,17 @@ class DeseasesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required'
+        ]);
+        
+        $desease = new Desease;
+        $desease->name = $request->input('name');
+        $desease->description = $request->input('description');
+        $desease->save();
+
+        return redirect('/deseases')->with('success','Desease created');
+
     }
 
     /**
@@ -59,7 +69,8 @@ class DeseasesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $desease = Desease::find($id);
+        return view('dashboard.deseases.editDesease')->with("desease", $desease);
     }
 
     /**
@@ -71,7 +82,16 @@ class DeseasesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required'
+        ]);
+        
+        $desease = Desease::find($id);
+        $desease->name = $request->input('name');
+        $desease->description = $request->input('description');
+        $desease->save();
+
+        return redirect('/deseases')->with('success','Desease updated');
     }
 
     /**
@@ -82,6 +102,8 @@ class DeseasesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $desease = Desease::find($id);
+        $desease->delete();
+        return redirect('/deseases')->with('success', 'Desease removed');
     }
 }
