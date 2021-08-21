@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Desease;
 use App\Models\Patient;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -28,7 +29,8 @@ class PatientController extends Controller
      */
     public function create()
     {
-        return view('dashboard.patients.create');
+        $deseases = Desease::all();
+        return view('dashboard.patients.create', compact('deseases'));
     }
 
     /**
@@ -51,6 +53,8 @@ class PatientController extends Controller
             'phone' => 'required',
             'first_injection_date' => 'required|date',
             'next_appointment' => 'required|date',
+            'deseases' => 'sometimes|required',
+            'deseases.*' => 'exists:deseases,id'
         ];
 
         $request->validate($rules);
@@ -68,6 +72,9 @@ class PatientController extends Controller
         $patient->first_injection_date = $request->first_injection_date;
         $patient->next_appointment = $request->next_appointment;
         $patient->save();
+
+        $patient->deseases()->attach($request->deseases);
+
         Session::flash('success','un patient est correctement ajouté');
         return redirect()->route('patients.index');
     }
@@ -81,7 +88,7 @@ class PatientController extends Controller
     public function show($id)
     {
         $patient = Patient::findOrFail($id);
-        return view('dashboard.patient.show', compact('patient'));
+        return view('dashboard.patients.show', compact('patient'));
     }
 
     /**
@@ -93,7 +100,8 @@ class PatientController extends Controller
     public function edit($id)
     {
         $patient = Patient::findOrFail($id);
-        return view('dashboard.patients.edit', compact('patient'));
+        $deseases = Desease::all();
+        return view('dashboard.patients.edit', compact(['patient','deseases']));
     }
 
     /**
@@ -119,6 +127,8 @@ class PatientController extends Controller
             'phone' => 'required',
             'first_injection_date' => 'required|date',
             'next_appointment' => 'required|date',
+            'deseases' => 'sometimes|required',
+            'deseases.*' => 'exists:deseases,id'
         ];
 
         $request->validate($rules);
@@ -135,6 +145,8 @@ class PatientController extends Controller
         $patient->first_injection_date = $request->first_injection_date;
         $patient->next_appointment = $request->next_appointment;
         $patient->save();
+
+        $patient->deseases()->sync($request->deseases);
 
         Session::flash('success','un patient est correctement modifé');
 

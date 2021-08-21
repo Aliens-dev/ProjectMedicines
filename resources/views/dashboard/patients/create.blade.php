@@ -69,6 +69,16 @@
                                         <input type="date" class="form-control" value="{{ old('next_appointment') }}" name="next_appointment" id="next_appointment" />
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label for="first_injection_date" class="col-sm-2 col-form-label">Les maladies ?</label>
+                                    <div class="col">
+                                        <select name="deseases[]" class="form-select col" multiple aria-label="multiple select">
+                                            @foreach($deseases as $desease)
+                                                <option value="{{ $desease->id }}">{{ $desease->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="mt-4 d-flex justify-content-center">
                                     <input type="submit" class="btn btn-primary mr-1" value="Ajouter">
                                     <input type="reset" class="btn btn-info" value="Réinitialiser">
