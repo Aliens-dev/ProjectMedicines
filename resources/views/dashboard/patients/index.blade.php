@@ -11,9 +11,9 @@
                         <div class="col-xl-8 col-md-6">
                             <a href="{{ route('patients.create') }}" class="btn btn-primary">Ajouter un patient</a>
                         </div>
-                        <form class="form-inline col-xl-4 col-md-6">
+                        <form action="{{route('patients.search')}}" class="form-inline col-xl-4 col-md-6">
                             <div class="mb-2 form-group">
-                                <input type="text" class="form-control" id="search" placeholder="Rechercher un N° ID">
+                                <input type="text" name="search" class="form-control" id="search" placeholder="Rechercher un N° ID">
                             </div>
                             <button class="btn btn-info mb-2 ml-1">Rechercher</button>
                         </form>

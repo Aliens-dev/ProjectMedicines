@@ -167,4 +167,14 @@ class PatientController extends Controller
 
         return redirect()->route('patients.index');
     }
+
+    public function search()
+    {
+        $search = request()->input('search');
+        $patients = Patient::where('first_name', 'LIKE', '%'.$search.'%')
+        ->orWhere('last_name', 'LIKE', '%'.$search.'%')
+        ->orWhere('national_id', 'LIKE', '%'.$search.'%')
+        ->paginate(20);
+        return view('dashboard.patients.index', compact('patients'));
+    }
 }

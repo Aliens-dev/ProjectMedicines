@@ -23,6 +23,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' =>'auth'], function() {
     Route::resource('patients', PatientController::class);
     Route::resource('deseases', DeseasesController::class);
     Route::resource('users', UsersController::class);
+    Route::get('/search','App\Http\Controllers\PatientController@search')->name('patients.search');
 
     // Deseases Routes
     // TODO Deseases Crud
