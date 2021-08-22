@@ -21,11 +21,6 @@
                             {{Form::label('email', 'Email')}}
                             {{Form::email('email', $user->email, ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Email'])}}
                         </div>
-                        <div class="form-group">
-                            {{Form::label('password', 'Password')}}
-                            {{Form::password('password', ['id' => 'article-ckeditor', 'class' => 'form-control','placeholder' => 'Password'])}}
-
-                        </div>
                         {{Form::hidden('_method','PUT')}}
                         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
                     {!! Form::close() !!}

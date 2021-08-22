@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
 use Illuminate\Http\Request;
@@ -49,7 +48,7 @@ class UsersController extends Controller
         $user->first_name = $request->input('fist_name');
         $user->last_name = $request->input('last_name');
         $user->email = $request->input('email');
-        $user->password = Hash::make($request->password);
+        $user->password = bcrypt($request->password);
         $user->save();
 
         return redirect('/users')->with('success','user created');
@@ -94,15 +93,15 @@ class UsersController extends Controller
             'email' => [
                 'required',
                 Rule::unique('users')->ignore($id),
-            ],
-            'password' => 'required|min:6'
+            ]
+            
         ]);
-
+        $Curuser = User::find($id);
         $user = User::findOrFail($id);
         $user->first_name = $request->input('fist_name');
         $user->last_name = $request->input('last_name');
         $user->email = $request->input('email');
-        $user->password = $request->input('password');
+        $user->password = bcrypt($Curuser->password);
         $user->save();
 
         return redirect()->route('users.index')->with('success','user updated');
