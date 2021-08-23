@@ -62,7 +62,6 @@ class PatientController extends Controller
         ];
 
         $request->validate($rules);
-
         $patient = new Patient();
         $patient->first_name = $request->first_name;
         $patient->last_name = $request->last_name;
@@ -106,7 +105,7 @@ class PatientController extends Controller
         $patient = Patient::findOrFail($id);
         $deseases = Desease::all();
         $contents = Storage::get('wilayas.json');
-        $data = json_decode($contents);        
+        $data = json_decode($contents);
         return view('dashboard.patients.edit', compact(['patient','deseases','data']));
     }
 

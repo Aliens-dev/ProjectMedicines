@@ -26,8 +26,6 @@ Route::group(['prefix' => 'dashboard', 'middleware' =>'auth'], function() {
     Route::get('/search','App\Http\Controllers\PatientController@search')->name('patients.search');
     Route::get('/settings', [UsersController::class, 'settings'])->name('settings');
     Route::get('/update-password', [ChangePasswordController::class, 'index'])->name('changePassword.index');
-    Route::post('/update-password', [ChangePasswordController::class, 'index'])->name('changePassword.update');
-
+    Route::post('/update-password', [ChangePasswordController::class, 'changePassword'])->name('changePassword.update');
 
 });
-Route::resource('users', UsersController::class);
