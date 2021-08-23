@@ -8,6 +8,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class PatientController extends Controller
 {
@@ -104,7 +105,9 @@ class PatientController extends Controller
     {
         $patient = Patient::findOrFail($id);
         $deseases = Desease::all();
-        return view('dashboard.patients.edit', compact(['patient','deseases']));
+        $contents = Storage::get('wilayas.json');
+        $data = json_decode($contents);        
+        return view('dashboard.patients.edit', compact(['patient','deseases','data']));
     }
 
     /**
