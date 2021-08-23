@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
 use Illuminate\Validation\Rule;
 
 use Illuminate\Http\Request;
@@ -11,7 +14,7 @@ class UsersController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function index()
     {
@@ -22,7 +25,7 @@ class UsersController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function create()
     {
@@ -32,20 +35,20 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
         $this->validate($request, [
-            'fist_name' => 'required',
+            'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6'
+            'password' => 'required|min:6|confirmed'
         ]);
-        
+
         $user = new User;
-        $user->first_name = $request->input('fist_name');
+        $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
         $user->email = $request->input('email');
         $user->password = bcrypt($request->password);
@@ -58,11 +61,11 @@ class UsersController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function show($id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
         return view('dashboard.users.showUser')->with("user", $user);
     }
 
@@ -70,7 +73,7 @@ class UsersController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function edit($id)
     {
@@ -81,37 +84,41 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'fist_name' => 'required',
+            'first_name' => 'required',
             'last_name' => 'required',
             'email' => [
                 'required',
                 Rule::unique('users')->ignore($id),
             ]
-            
         ]);
-        $Curuser = User::find($id);
+
         $user = User::findOrFail($id);
-        $user->first_name = $request->input('fist_name');
+        $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
         $user->email = $request->input('email');
-        $user->password = bcrypt($Curuser->password);
         $user->save();
 
         return redirect()->route('users.index')->with('success','user updated');
+    }
+
+
+    public function settings()
+    {
+        return view('dashboard.users.settings');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function destroy($id)
     {

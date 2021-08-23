@@ -18,7 +18,10 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $patients = Patient::paginate(20);
+        $patients = Patient::paginate(4);
+
+        Session::flash('success','un patient est correctement modifé');
+
         return view('dashboard.patients.index', compact('patients'));
     }
 

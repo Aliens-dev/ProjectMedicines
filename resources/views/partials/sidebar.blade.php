@@ -23,15 +23,21 @@
             </a>
             <a  href="{{ route('deseases.index') }}" class="sidebar-item ripple">
                 <div class="icon">
-                    <img src="/assets/img/group.svg" width="20" height="20" alt="">
+                    <img src="/assets/img/tag.svg" width="20" height="20" alt="">
                 </div>
                 <div class="text">Les Maladies</div>
             </a>
-            <a  href="" class="sidebar-item ripple">
+            <a  href="{{ route('users.index') }}" class="sidebar-item ripple">
+                <div class="icon">
+                    <img src="/assets/img/group.svg" width="20" height="20" alt="">
+                </div>
+                <div class="text">Les utilisateurs</div>
+            </a>
+            <a  href="{{ route('settings') }}" class="sidebar-item ripple">
                 <div class="icon">
                     <img src="/assets/img/user.svg" width="20" height="20" alt="">
                 </div>
-                <div class="text">My Account</div>
+                <div class="text">Mon Compte</div>
             </a>
         </div>
     </div>

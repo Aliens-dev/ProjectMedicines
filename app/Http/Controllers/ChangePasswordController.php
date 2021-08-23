@@ -9,8 +9,7 @@ class ChangePasswordController extends Controller
 {
     public function index()
     {
-
-      return view('users.changePassword');
+        return view('dashboard.users.changePassword');
     }
 
     public function changePassword(Request $request, $id)

@@ -7,6 +7,14 @@
             <div class="content flex-grow-1">
                 @include('partials.navbar')
                 <div class="patients">
+                    @if(\Illuminate\Support\Facades\Session::has('success'))
+                        <div class="row mt-2 ml-3 mr-3">
+                            <div class="alert alert-success alert-dismissible fade show col" role="alert">
+                                {{ \Illuminate\Support\Facades\Session::get('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        </div>
+                    @endif
                     <div class="row mt-5 m-2">
                         <div class="col-xl-8 col-md-6">
                             <a href="{{ route('patients.create') }}" class="btn btn-primary">Ajouter un patient</a>
@@ -73,6 +81,9 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                <div>
+                                    {{ $patients->links() }}
+                                </div>
                             @else
                                 Pas de patients, Veuillez ajouter un
                             @endif

@@ -1,25 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-    
+
     <div class="app" id="app">
         <div class="wrapper d-flex">
             @include('partials.sidebar')
             <div class="content flex-grow-1">
                 @include('partials.navbar')
-                <div class="desease">
-                    <a href="/users" class="btn btn-default">retour</a>
-                    <h1>{{$user->first_name}} {{$user->last_name}}</h1>
-                    <small>description : {{$user->email}}</small>
-                    <hr>
-                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-default">Edit</a>
-                    {!!Form::open(['action' => ['App\Http\Controllers\UsersController@destroy',$user->id], 'methode', 'POST', 'class' => 'pull-right'])!!}
-                        {{Form::hidden('_method', 'DELETE')}}
-                        {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}                    
-                    {!!Form::close()!!}
+                <div class="d-flex justify-content-center m-5">
+                    <div class="card p-5">
+                        <img src="/assets/img/man.svg" class="card-img-top" alt="{{ $user->first_name }}">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <h5 class="card-title">{{ $user->first_name }} {{ $user->last_name }}</h5>
+                            <p class="card-text">{{ $user->email }}</p>
+                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-success mt-2">Modifier</a>
+                            <a href="#" class="btn btn-danger mt-2">Supprimmer</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 @endsection
- 

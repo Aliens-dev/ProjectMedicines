@@ -9,24 +9,29 @@
                 <div class="patients">
                     <div class="row mt-5 mb-5 mr-5 ml-5">
                         <div class="col">
-                            <form action="{{ route('deseases.update', $desease->id) }}" method="POST">
+                            <form action="{{ route('users.update', auth()->id()) }}" method="POST">
                                 @csrf
                                 @method('PATCH')
                                 <div class="form-group row">
-                                    <label for="name" class="col-sm-2 col-form-label">Nom de Maladie</label>
+                                    <label for="last_name" class="col-sm-2 col-form-label">Nom</label>
                                     <div class="col">
-                                        <input type="text" class="form-control" name="name" id="name" value="{{ $desease->name  }}">
+                                        <input type="text" class="form-control" name="last_name" id="last_name" value="{{ auth()->user()->last_name }}">
+                                    </div>
+                                    <label for="first_name" class="col-sm-2 col-form-label">Prenom</label>
+                                    <div class="col">
+                                        <input type="text" class="form-control" name="first_name" id="first_name" value="{{ auth()->user()->first_name }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="description" class="col-sm-2 col-form-label">Description</label>
+                                    <label for="email" class="col-sm-2 col-form-label">Email</label>
                                     <div class="col">
-                                        <textarea class="form-control" name="description" id="description">{{ $desease->description }}</textarea>
+                                        <input type="text" class="form-control" name="email" id="email" value="{{ auth()->user()->email }}">
                                     </div>
                                 </div>
                                 <div class="mt-4 d-flex justify-content-center">
                                     <input type="submit" class="btn btn-success mr-1" value="Modifier">
-                                    <input type="reset" class="btn btn-info" value="Réinitialiser">
+                                    <input type="reset" class="btn btn-info mr-1" value="Réinitialiser">
+                                    <a href="{{ route('changePassword.index') }}" class="btn btn-primary">Modifier le Mot de passe</a>
                                 </div>
                             </form>
                         </div>
