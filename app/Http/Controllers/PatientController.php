@@ -9,6 +9,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use Kossa\AlgerianCities\Commune;
+use Kossa\AlgerianCities\Wilaya;
 
 class PatientController extends Controller
 {
@@ -20,9 +22,6 @@ class PatientController extends Controller
     public function index()
     {
         $patients = Patient::paginate(4);
-
-        Session::flash('success','un patient est correctement modifé');
-
         return view('dashboard.patients.index', compact('patients'));
     }
 
@@ -68,8 +67,8 @@ class PatientController extends Controller
         $patient->national_id = $request->national_id;
         $patient->birthday = $request->birthday;
         $patient->age = $request->age;
-        $patient->state_of_residence = $request->state_of_residence;
-        $patient->city_of_residence = $request->city_of_residence;
+        $patient->state_of_residence = Wilaya::where('id', $request->state_of_residence)->first()->name;
+        $patient->city_of_residence = Commune::where('id', $request->city_of_residence)->first()->name;
         $patient->address = $request->address;
         $patient->phone = $request->phone;
         $patient->first_injection_date = $request->first_injection_date;
@@ -104,9 +103,7 @@ class PatientController extends Controller
     {
         $patient = Patient::findOrFail($id);
         $deseases = Desease::all();
-        $contents = Storage::get('wilayas.json');
-        $data = json_decode($contents);
-        return view('dashboard.patients.edit', compact(['patient','deseases','data']));
+        return view('dashboard.patients.edit', compact(['patient','deseases']));
     }
 
     /**
@@ -143,8 +140,8 @@ class PatientController extends Controller
         $patient->national_id = $request->national_id;
         $patient->birthday = $request->birthday;
         $patient->age = $request->age;
-        $patient->state_of_residence = $request->state_of_residence;
-        $patient->city_of_residence = $request->city_of_residence;
+        $patient->state_of_residence = Wilaya::where('id', $request->state_of_residence)->first()->name;
+        $patient->city_of_residence = Commune::where('id', $request->city_of_residence)->first()->name;
         $patient->address = $request->address;
         $patient->phone = $request->phone;
         $patient->first_injection_date = $request->first_injection_date;

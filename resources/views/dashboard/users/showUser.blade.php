@@ -15,9 +15,7 @@
                             <p class="card-text">{{ $user->email }}</p>
                             <a href="{{ route('users.edit', $user->id) }}" class="btn btn-success mt-2">Modifier</a>
                             {!! Form::open(['method'=>'DELETE', 'url' =>route('users.destroy', $user->id),'style' => 'display:inline']) !!}
-
-                                {!! Form::button('<i class="ft-trash"></i>delete', array('type' => 'submit','class' => 'btn btn-danger mt-2','title' => 'Delete Post','onclick'=>'return confirm("Confirm delete?")')) !!}
-
+                                {!! Form::button('Suprimmer', array('type' => 'submit','class' => 'btn btn-danger mt-2 w-100','title' => 'Suprimmer Utilisateur','onclick'=>'return confirm("Confirm delete?")')) !!}
                             {!! Form::close() !!}
                         </div>
                     </div>

@@ -53,8 +53,8 @@
                                 </div>
                                 <div class="form-group row">
                                     <label for="state_of_residence" class="col-sm-2 col-form-label">Wilaya</label>
-                                    <div class="col d-flex flex-column">
-                                        <input type="text" class="form-control" value="{{ old('state_of_residence') }}" name="state_of_residence" id="state_of_residence" />
+                                    <div class="col d-flex flex-column" >
+                                        <select class="form-control" id="state_of_residence" name="state_of_residence"></select>
                                         @error('state_of_residence')
                                             <span class="alert alert-danger mt-1 pt-1 pb-1" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -63,7 +63,7 @@
                                     </div>
                                     <label for="city_of_residence" class="col-sm-2 col-form-label">Ville</label>
                                     <div class="col d-flex flex-column">
-                                        <input type="text" class="form-control" value="{{ old('city_of_residence') }}" name="city_of_residence" id="city_of_residence" />
+                                        <select class="form-control" id="city_of_residence" name="city_of_residence"></select>
                                         @error('city_of_residence')
                                             <span class="alert alert-danger mt-1 pt-1 pb-1" role="alert">
                                                 <strong>{{ $message }}</strong>

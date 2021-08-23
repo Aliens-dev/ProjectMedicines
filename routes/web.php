@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\DeseasesController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\WilayaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 
@@ -27,5 +28,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' =>'auth'], function() {
     Route::get('/settings', [UsersController::class, 'settings'])->name('settings');
     Route::get('/update-password', [ChangePasswordController::class, 'index'])->name('changePassword.index');
     Route::post('/update-password', [ChangePasswordController::class, 'changePassword'])->name('changePassword.update');
-
 });
+
+Route::get('/wilayas', [WilayaController::class,'index']);
+Route::get('/wilayas/{num}', [WilayaController::class,'cities']);

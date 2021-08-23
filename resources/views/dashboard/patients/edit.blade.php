@@ -35,11 +35,11 @@
                                 <div class="form-group row">
                                     <label for="state_of_residence" class="col-sm-2 col-form-label">Wilaya</label>
                                     <div class="col">
-                                        <input type="text" class="form-control" value="{{ $patient->state_of_residence }}" name="state_of_residence" id="state_of_residence" />
+                                        <select class="form-control" name="state_of_residence" id="state_of_residence"></select>
                                     </div>
                                     <label for="city_of_residence" class="col-sm-2 col-form-label">Ville</label>
                                     <div class="col">
-                                        <input type="text" class="form-control" value="{{ $patient->city_of_residence }}" name="city_of_residence" id="city_of_residence" />
+                                        <select class="form-control" name="city_of_residence" id="city_of_residence"></select>
                                     </div>
                                 </div>
                                 <div class="form-group row">

@@ -11,18 +11,18 @@
                     <div class="card" style="width: 25rem;">
                         <div class="card-body">
                             <h3 class="card-title mb-4">{{ $patient->first_name }} {{ $patient->last_name }}</h3>
-                            <h6 class="card-subtitle mb-3 text-muted">N° carte : {{ $patient->national_id }}</h6>
-                            <h6 class="card-subtitle mb-3 text-muted">N° Téléphone : {{ $patient->national_id }}</h6>
-                            <h6 class="card-subtitle mb-3 text-muted">Adresse : {{ $patient->address }}</h6>
-                            <h6 class="card-subtitle mb-3 text-muted">Wilaya : {{ $patient->state_of_residence }}</h6>
-                            <h6 class="card-subtitle mb-3 text-muted">Ville : {{ $patient->city_of_residence }}</h6>
-                            <h6 class="card-subtitle mb-3 text-muted">Date Naissance : {{ $patient->birthday }}</h6>
-                            <h6 class="card-subtitle mb-3 text-muted">Age : {{ $patient->age }}</h6>
-                            <h6 class="card-subtitle mb-3 text-muted">Premiere Injection : {{ $patient->first_injection_date }}</h6>
-                            <h6 class="card-subtitle mb-3 text-muted">Rendez Vous : {{ $patient->next_appointment }}</h6>
+                            <h6 class="card-subtitle mb-3 text-muted"><strong>N° carte :</strong> {{ $patient->national_id }}</h6>
+                            <h6 class="card-subtitle mb-3 text-muted"><strong>N° Téléphone :</strong> {{ $patient->national_id }}</h6>
+                            <h6 class="card-subtitle mb-3 text-muted"><strong>Adresse :</strong> {{ $patient->address }}</h6>
+                            <h6 class="card-subtitle mb-3 text-muted"><strong>Wilaya :</strong> {{ $patient->state_of_residence }}</h6>
+                            <h6 class="card-subtitle mb-3 text-muted"><strong>Ville :</strong> {{ $patient->city_of_residence }}</h6>
+                            <h6 class="card-subtitle mb-3 text-muted"><strong>Date Naissance :</strong> {{ $patient->birthday }}</h6>
+                            <h6 class="card-subtitle mb-3 text-muted"><strong>Age :</strong> {{ $patient->age }}</h6>
+                            <h6 class="card-subtitle mb-3 text-muted"><strong>Premiere Injection :</strong> {{ $patient->first_injection_date }}</h6>
+                            <h6 class="card-subtitle mb-3 text-muted"><strong>Rendez Vous :</strong> {{ $patient->next_appointment }}</h6>
                             @if(count($patient->deseases))
                                 <div class="card-text">
-                                    les Maladie:
+                                    <strong>les Maladie:</strong>
                                     <ul>
                                         @foreach($patient->deseases as $desease)
                                             <li> {{ $desease->name }}</li>
@@ -30,10 +30,10 @@
                                     </ul>
                                 </div>
                             @endif
-                            <a href="{{ route('patients.edit', $patient->id) }}" class="btn btn-success">Modifier</a>
-                            {!! Form::open(['method'=>'DELETE', 'url' =>route('patients.destroy', $patient->id),'style' => 'display:inline']) !!}
+                            <a href="{{ route('patients.edit', $patient->id) }}" class="btn btn-success w-100 mb-2">Modifier</a>
+                            {!! Form::open(['method'=>'DELETE', 'url' =>route('patients.destroy', $patient->id),'style' => 'display:block']) !!}
 
-                                {!! Form::button('<i class="ft-trash"></i>delete', array('type' => 'submit','class' => 'btn btn-danger','title' => 'Delete Post','onclick'=>'return confirm("Confirm delete?")')) !!}
+                                {!! Form::button('<i class="ft-trash"></i>delete', array('type' => 'submit','class' => 'btn btn-danger w-100','title' => 'Delete Post','onclick'=>'return confirm("Confirm delete?")')) !!}
 
                             {!! Form::close() !!}
                         </div>

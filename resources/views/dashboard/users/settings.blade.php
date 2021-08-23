@@ -30,7 +30,6 @@
                                 </div>
                                 <div class="mt-4 d-flex justify-content-center">
                                     <input type="submit" class="btn btn-success mr-1" value="Modifier">
-                                    <input type="reset" class="btn btn-info mr-1" value="Réinitialiser">
                                     <a href="{{ route('changePassword.index') }}" class="btn btn-primary">Modifier le Mot de passe</a>
                                 </div>
                             </form>

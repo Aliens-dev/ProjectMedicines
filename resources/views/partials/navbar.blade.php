@@ -8,13 +8,14 @@
     <div class="navbar-items">
         <div class="navbar-block">
             <div class="navbar-item">
-                <a class="navbar-link ripple" href="">Home</a>
+                <a class="navbar-link ripple" href="{{ route('dashboard') }}">Home</a>
             </div>
         </div>
         <div class="navbar-block">
-            <livewire:notification-component />
             <div class="navbar-item dropleft">
-                
+                <a type="button" class="navbar-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ auth()->user()->first_name }}
+                </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a href="" class="dropdown-item">
                         My Account
