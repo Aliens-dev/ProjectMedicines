@@ -31,7 +31,11 @@
                                 </div>
                             @endif
                             <a href="{{ route('patients.edit', $patient->id) }}" class="btn btn-success">Modifier</a>
-                            <button  class="btn btn-danger">Supprimmer</button>
+                            {!! Form::open(['method'=>'DELETE', 'url' =>route('patients.destroy', $patient->id),'style' => 'display:inline']) !!}
+
+                                {!! Form::button('<i class="ft-trash"></i>delete', array('type' => 'submit','class' => 'btn btn-danger','title' => 'Delete Post','onclick'=>'return confirm("Confirm delete?")')) !!}
+
+                            {!! Form::close() !!}
                         </div>
                     </div>
                 </div>

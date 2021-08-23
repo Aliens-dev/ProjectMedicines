@@ -168,7 +168,7 @@ class PatientController extends Controller
         $patient->delete();
         Session::flash('success','un patient est correctement supprimmé');
 
-        return redirect()->route('patients.index');
+        return redirect()->route('patients.index')->with('success', 'user removed');
     }
 
     public function search()
