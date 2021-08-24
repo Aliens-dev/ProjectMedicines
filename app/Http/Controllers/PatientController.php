@@ -21,7 +21,7 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $patients = Patient::paginate(4);
+        $patients = Patient::paginate(20);
         return view('dashboard.patients.index', compact('patients'));
     }
 
@@ -153,6 +153,17 @@ class PatientController extends Controller
         Session::flash('success','un patient est correctement modifé');
 
         return redirect()->route('patients.index');
+    }
+
+
+    public function submitInjection($patientId)
+    {
+        $patient = Patient::findOrFail($patientId);
+
+        $patient->second_injection = 1;
+        $patient->save();
+
+        return redirect()->route('patients.show', $patientId)->with('success', 'le patient injection est modifier');
     }
 
     /**

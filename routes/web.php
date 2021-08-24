@@ -13,15 +13,12 @@ use App\Http\Controllers\DashboardController;
 // Auth routes
 Auth::routes(['register' => false]);
 
-// Website Pages
-Route::get('/', [LoginController::class,'login']);
-
 // Dashboard routes
 Route::group(['prefix' => 'dashboard', 'middleware' =>'auth'], function() {
     // Dashboard Page
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-
+    Route::redirect('/', 'dashboard/patients')->name('dashboard');
     Route::resource('patients', PatientController::class);
+    Route::post('patients/{id}/submit-injection', [PatientController::class,'submitInjection'])->name('patients.injection');
     Route::resource('deseases', DeseasesController::class);
     Route::resource('users', UsersController::class);
     Route::get('/search','App\Http\Controllers\PatientController@search')->name('patients.search');

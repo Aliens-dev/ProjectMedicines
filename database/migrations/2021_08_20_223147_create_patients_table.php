@@ -26,6 +26,7 @@ class CreatePatientsTable extends Migration
             $table->string('phone');
             $table->string('first_injection_date');
             $table->string('next_appointment');
+            $table->integer('second_injection')->default(0);
             $table->timestamps();
         });
     }

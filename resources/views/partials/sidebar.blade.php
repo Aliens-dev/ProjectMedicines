@@ -9,12 +9,6 @@
     <div class="divider"></div>
     <div class="sidebar-body">
         <div class="sidebar-items">
-            <a href="{{ route('dashboard') }}" class="sidebar-item ripple">
-                <div class="icon">
-                    <img src="/assets/img/dashboard.svg" width="20" height="20" alt="">
-                </div>
-                <div class="text">Dashboard</div>
-            </a>
             <a  href="{{ route('patients.index') }}" class="sidebar-item ripple">
                 <div class="icon">
                     <img src="/assets/img/group.svg" width="20" height="20" alt="">
