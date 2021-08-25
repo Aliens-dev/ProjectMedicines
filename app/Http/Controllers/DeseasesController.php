@@ -108,4 +108,12 @@ class DeseasesController extends Controller
         $desease->delete();
         return redirect()->route('deseases.index')->with('success', 'Desease removed');
     }
+
+    public function search()
+    {
+        $search = request()->input('search');
+        $deseases = Desease::where('name', 'LIKE', '%'.$search.'%')
+        ->paginate(20);
+        return view('dashboard.deseases.index', compact('deseases'));
+    }
 }
