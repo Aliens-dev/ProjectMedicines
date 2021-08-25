@@ -1,12 +1,11 @@
-<div class="admin-sidebar">
-    <div class="sidebar-back"></div>
+{{-- <div class="admin-sidebar">
     <div class="sidebar-header">
         <div class="image">
             <img src="/assets/img/man.svg" alt="Vaccine-App" />
         </div>
         <span class="title">Vaccine-App</span>
     </div>
-    <div class="divider"></div>
+    
     <div class="sidebar-body">
         <div class="sidebar-items">
             <a  href="{{ route('patients.index') }}" class="sidebar-item ripple">
@@ -35,4 +34,41 @@
             </a>
         </div>
     </div>
-</div>
+</div> --}}
+
+
+
+<div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
+        <div class="p-4 pt-5">
+          <a href="#" class="img logo rounded-circle mb-5" style="background-image: url({{ asset('assets/img/covid19.jpg') }});"></a>
+    <ul class="list-unstyled components mb-5">
+      <li>
+        <a href="{{ route('patients.index') }}">Patients</a>
+      </li>
+      <li>
+          <a href="{{ route('deseases.index') }}">Maladies</a>
+      </li>
+      <li>
+      <a href="{{ route('users.index') }}">Utilisateurs</a>
+      </li>
+      <li>
+      <a href="{{ route('settings') }}">Mon compte</a>
+      </li>
+      <li>
+      <a href="#">Déconnecter</a>
+      </li>
+    </ul>
+
+    <div class="footer">
+        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This web site is made  <i class="icon-heart" aria-hidden="true"></i> by <a href="https://dz.linkedin.com/in/sofiane-ouchene-150b1816b/en?trk=people-guest_people_search-card" target="_blank">OUCHENE Sofiane</a> & <a href="https://dz.linkedin.com/in/nabil-merazga/en?trk=people-guest_people_search-card" target="_blank">MERAZGA Nabil</a> 
+                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+    </div>
+
+  </div>
+</nav>
+
+<!-- Page Content  -->
+
+

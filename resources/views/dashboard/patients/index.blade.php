@@ -28,7 +28,7 @@
                             <button class="btn btn-info mb-2 ml-1">Rechercher</button>
                         </form>
                     </div>
-                    <div class="limiter">
+                    <div class="limiter container">
                         <div class="container-table100">
                             <div class="wrap-table100">
                                
@@ -89,9 +89,7 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
-                                        <div>
-                                            {{ $patients->links() }}
-                                        </div>
+                                        {{ $patients->links() }}
                                     @else
                                         Pas de patients, Veuillez ajouter un
                                     @endif

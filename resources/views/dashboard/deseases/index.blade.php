@@ -28,7 +28,7 @@
                             <button class="btn btn-info mb-2 ml-1">Rechercher</button>
                         </form>
                     </div>
-                    <div class="limiter">
+                    <div class="limiter container">
                         <div class="container-table100">
                             <div class="wrap-table100">
                                 @if(count($deseases))
@@ -66,6 +66,7 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    {{$deseases->links()}}
                                 @else
                                     Pas de Maladie, Veuillez ajouter un
                                 @endif

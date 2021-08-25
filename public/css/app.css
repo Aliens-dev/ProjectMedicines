@@ -1874,11 +1874,11 @@ pre code {
 
 .table .thead-dark th {
   color: #fff;
-  background-color: #343a40;
-  border-color: #454d55;
+  background-color: #1d1919;
+  border-color: #1d1919;
 }
 .table .thead-light th {
-  color: #495057;
+  color: #1d1919;
   background-color: #e9ecef;
   border-color: #dee2e6;
 }
@@ -9999,6 +9999,6 @@ h3 {
 
   .table .thead-dark th {
     color: inherit;
-    border-color: #dee2e6;
+    border-color: #1d1919;
   }
 }

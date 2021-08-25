@@ -22,7 +22,7 @@
                             <a href="{{ route('users.create') }}" class="btn btn-primary">Ajouter un utilisateur</a>
                         </div>
                     </div>
-                    <div class="limiter">
+                    <div class="limiter container">
                             <div class="container-table100">
                                 <div class="wrap-table100">
                                     <table class="table">

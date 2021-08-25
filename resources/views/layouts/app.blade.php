@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
@@ -26,6 +26,12 @@
 
     <link href="{{ asset('assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}" rel="stylesheet">
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
     <div>
@@ -48,5 +54,14 @@
     <script src="{{ asset('js/my_script.js') }}" defer></script>
 
     <script src="{{ asset('vendor/countdowntime/countdowntime.js') }}" defer></script>
+
+
+
+    <script src="{{ asset('js/side/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/side/popper.js') }}"></script>
+    <script src="{{ asset('js/side/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/side/main.js') }}"></script>
+
+
 </body>
 </html>

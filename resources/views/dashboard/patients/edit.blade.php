@@ -85,7 +85,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-4 d-flex justify-content-center">
-                                    <input type="submit" class="btn btn-success mr-1" value="Modifier">
+                                    <input type="submit" class="btn btn-primary mr-1" value="Modifier">
                                     <input type="reset" class="btn btn-info" value="Réinitialiser">
                                 </div>
                             </form>

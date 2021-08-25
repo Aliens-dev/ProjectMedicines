@@ -16,7 +16,7 @@ class DeseasesController extends Controller
      */
     public function index()
     {
-        $deseases = Desease::orderBy('name', 'asc')->paginate(20);
+        $deseases = Desease::orderBy('name', 'asc')->paginate(10);
         return view('dashboard.deseases.index')->with('deseases', $deseases);
     }
 
