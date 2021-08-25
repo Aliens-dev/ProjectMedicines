@@ -4,7 +4,7 @@
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
+            <div class="login100-form-title" style="background-image: url({{ asset('assets/img/covid19.jpg') }});">
                 <span class="login100-form-title-1">
                     {{ __('Login') }}
                 </span>
