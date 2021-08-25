@@ -12,7 +12,7 @@ class ChangePasswordController extends Controller
         return view('dashboard.users.changePassword');
     }
 
-    public function changePassword(Request $request, $id)
+    public function changePassword(Request $request)
     {
         $request->validate([
           'current_password' => 'required',
@@ -26,7 +26,7 @@ class ChangePasswordController extends Controller
             return back()->with('error', 'Current password does not match!');
         }
 
-        $user->password = Hash::make($request->password);
+        $user->password = bcrypt($request->password);
         $user->save();
 
         return back()->with('success', 'Password successfully changed!');
