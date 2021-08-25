@@ -16,7 +16,7 @@ class DeseasesController extends Controller
      */
     public function index()
     {
-        $deseases = Desease::orderBy('name', 'asc')->paginate(20);
+        $deseases = Desease::orderBy('name', 'asc')->paginate(10);
         return view('dashboard.deseases.index')->with('deseases', $deseases);
     }
 
@@ -107,5 +107,13 @@ class DeseasesController extends Controller
         $desease = Desease::findOrFail($id);
         $desease->delete();
         return redirect()->route('deseases.index')->with('success', 'Desease removed');
+    }
+
+    public function search()
+    {
+        $search = request()->input('search');
+        $deseases = Desease::where('name', 'LIKE', '%'.$search.'%')
+        ->paginate(20);
+        return view('dashboard.deseases.index', compact('deseases'));
     }
 }

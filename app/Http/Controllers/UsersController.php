@@ -95,6 +95,7 @@ class UsersController extends Controller
             'last_name' => 'required',
             'email' => [
                 'required',
+                'email',
                 Rule::unique('users')->ignore($id),
             ]
         ]);
