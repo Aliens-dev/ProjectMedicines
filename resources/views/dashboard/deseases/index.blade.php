@@ -28,11 +28,11 @@
                             <button class="btn btn-info mb-2 ml-1">Rechercher</button>
                         </form>
                     </div>
-                    <div class="limiter container">
+                    <div class="limiter pt-1 pr-4 pl-4">
                         <div class="container-table100">
                             <div class="wrap-table100">
                                 @if(count($deseases))
-                                    <table class="table">
+                                    <table class="table table-bordered">
                                         <thead class=" header thead-dark">
                                         <tr class="header">
                                             <th scope="col" class="cell">ID</th>

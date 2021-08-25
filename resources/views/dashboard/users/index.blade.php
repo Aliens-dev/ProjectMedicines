@@ -22,10 +22,10 @@
                             <a href="{{ route('users.create') }}" class="btn btn-primary">Ajouter un utilisateur</a>
                         </div>
                     </div>
-                    <div class="limiter container">
+                    <div class="limiter  pt-1 pr-4 pl-4">
                             <div class="container-table100">
                                 <div class="wrap-table100">
-                                    <table class="table">
+                                    <table class="table table-bordered">
                                         <thead class="thead-dark deader">
                                         <tr class="header">
                                             <th scope="col" class = "cell">Nom</th>
