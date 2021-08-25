@@ -18,8 +18,8 @@
                 <a href="" class="dropdown-item">
                     My Account
                 </a>
-                <a href="" class="dropdown-item">
-                    <form method="POST"  action="{{ route('logout') }}" >
+                <a class="dropdown-item">
+                    <form method="POST"  action="{{ url('/logout') }}" >
                         @csrf
                         <button class="button">Logout</button>
                     </form>

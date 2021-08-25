@@ -26,6 +26,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' =>'auth'], function() {
     Route::get('/settings', [UsersController::class, 'settings'])->name('settings');
     Route::get('/update-password', [ChangePasswordController::class, 'index'])->name('changePassword.index');
     Route::post('/update-password', [ChangePasswordController::class, 'changePassword'])->name('changePassword.update');
+    Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 });
 
 Route::get('/wilayas', [WilayaController::class,'index']);
