@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Ajouter un patient')
 @section('content')
     <div class="app" id="app">
         <div class="wrapper d-flex">

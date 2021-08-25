@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', "S'authentifier")
 @section('content')
 <div class="limiter">
     <div class="container-login100">
@@ -33,7 +33,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                    
+
                 </div>
 
                 <div class="flex-sb-m w-full p-b-30">

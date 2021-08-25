@@ -47,13 +47,13 @@ class PatientController extends Controller
         $rules = [
             'first_name' => 'required',
             'last_name'  => 'required',
-            'national_id' => 'required',
+            'national_id' => 'required|digits_between:18,18|numeric',
             'birthday'=> 'required|date',
             'age' => 'required|min:1|max:120',
             'state_of_residence' => 'required',
             'city_of_residence' => 'required',
             'address' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|regex:/0[567]\d{8}/',
             'first_injection_date' => 'required|date',
             'next_appointment' => 'required|date',
             'deseases' => 'sometimes|required',
@@ -61,6 +61,7 @@ class PatientController extends Controller
         ];
 
         $request->validate($rules);
+
         $patient = new Patient();
         $patient->first_name = $request->first_name;
         $patient->last_name = $request->last_name;
