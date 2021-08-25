@@ -22,6 +22,7 @@
     <link href="{{ asset('vendor/animsition/css/animsition.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/select2/select2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/daterangepicker/daterangepicker.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet">
 
     <link href="{{ asset('assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}" rel="stylesheet">
