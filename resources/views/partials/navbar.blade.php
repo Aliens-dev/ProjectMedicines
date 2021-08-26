@@ -15,7 +15,7 @@
           <div class="nav-item active dropleft">
               <a type="button" class="navbar-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a href="" class="dropdown-item">
+                <a href="{{ route('settings') }}" class="dropdown-item">
                     My Account
                 </a>
                 <a class="dropdown-item">
