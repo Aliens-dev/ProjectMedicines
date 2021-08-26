@@ -39,9 +39,9 @@
 
 
 <div class="wrapper d-flex align-items-stretch">
-    <nav id="sidebar">
+    <nav id="sidebar" content="height=device-height">
         <div class="p-4 pt-5">
-          <a href="#" class="img logo rounded-circle mb-5" style="background-image: url({{ asset('assets/img/covid19.jpg') }});"></a>
+          <a href="#" class="img logo rounded-circle mb-5" style="background-image: url({{ asset('assets/img/nemsLogo.jpg') }});"></a>
     <ul class="list-unstyled components mb-5">
       <li>
         <a href="{{ route('patients.index') }}">Patients</a>
