@@ -5,8 +5,6 @@ namespace Patients;
 
 
 use App\Models\User;
-use Database\Seeders\DatabaseSeeder;
-use Database\Seeders\WilayaCommuneSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -103,7 +101,9 @@ class CreatePatientTest extends TestCase
     /** @test */
     public function a_first_injection_date_must_be_today_or_higher()
     {
-        $response = $this->login()->post(route('patients.store'), $this->myData()->except('first_injection_date')->toArray());
+        $data = $this->myData()->toArray();
+        $data['first_injection_date'] = '25-08-2021';
+        $response = $this->login()->post(route('patients.store'), $data);
         $response->assertStatus(302);
         $response->assertSessionHasErrors('first_injection_date');
     }
@@ -115,6 +115,17 @@ class CreatePatientTest extends TestCase
         $response->assertStatus(302);
         $response->assertSessionHasErrors('next_appointment');
     }
+
+    /** @test */
+    public function a_next_appointment_must_be_after_first_injection()
+    {
+        $data = $this->myData()->toArray();
+        $data['next_appointment'] = '20-01-2010';
+        $response = $this->login()->post(route('patients.store'), $data);
+        $response->assertStatus(302);
+        $response->assertSessionHasErrors('next_appointment');
+    }
+
     private function myData()
     {
         return collect([
@@ -130,9 +141,5 @@ class CreatePatientTest extends TestCase
             'first_injection_date' => '10-12-2021',
             'next_appointment' => '11-12-2021',
         ]);
-    }
-    private function login() {
-        $user = User::factory()->create();
-        return $this->actingAs($user);
     }
 }

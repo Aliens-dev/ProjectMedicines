@@ -51,11 +51,7 @@
     <script src="{{ asset('vendor/daterangepicker/moment.min.js') }}" defer></script>
 
     <script src="{{ asset('vendor/daterangepicker/daterangepicker.js') }}" defer></script>
-    <script src="{{ asset('js/my_script.js') }}" defer></script>
-
     <script src="{{ asset('vendor/countdowntime/countdowntime.js') }}" defer></script>
-
-
 
     <script src="{{ asset('js/side/jquery.min.js') }}"></script>
     <script src="{{ asset('js/side/popper.js') }}"></script>
