@@ -54,7 +54,7 @@ class UsersController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
-        return redirect('/users')->with('success','user created');
+        return redirect()->route('users.index')->with('success','user created');
     }
 
     /**
