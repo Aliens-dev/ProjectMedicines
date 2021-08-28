@@ -9,6 +9,7 @@ class Patient extends Model
 {
     use HasFactory;
 
+    protected $hidden = ['created_at','updated_at'];
 
     public function deseases()
     {

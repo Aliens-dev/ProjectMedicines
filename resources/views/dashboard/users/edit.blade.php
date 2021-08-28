@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', "modifier l'utilisateur")
 @section('content')
     <div class="app" id="app">
         <div class="wrapper d-flex">

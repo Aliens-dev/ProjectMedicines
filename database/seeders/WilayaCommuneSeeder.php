@@ -27,10 +27,10 @@ class WilayaCommuneSeeder extends Seeder
 
         if (!$wilayas && !$communes) {
             $this->loadData();
-            $this->command->info("Success!! wilayas and communes are loaded successfully");
+            //$this->command->info("Success!! wilayas and communes are loaded successfully");
             return;
         }
-        
+
         $this->command->comment("Wilayas/Communes already loaded");
     }
 

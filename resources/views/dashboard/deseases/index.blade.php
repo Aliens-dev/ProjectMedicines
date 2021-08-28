@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Liste des maladies')
 @section('content')
     <div class="app" id="app">
         <div class="wrapper d-flex">
@@ -21,18 +21,18 @@
                         <div class="col-xl-8 col-md-6">
                             <a href="{{ route('deseases.create') }}" class="btn btn-primary">Ajouter une maladie</a>
                         </div>
-                        <form action="{{route('deseases.search')}}" class="form-inline col-xl-4 col-md-6">
+                        <form action="{{route('deseases.search')}}" class="form-inline col-xl-4 col-md-6 d-flex justify-content-end">
                             <div class="mb-2 form-group">
                                 <input type="text" name="search" class="form-control" id="search" placeholder="Rechercher un N° ID">
                             </div>
                             <button class="btn btn-info mb-2 ml-1">Rechercher</button>
                         </form>
                     </div>
-                    <div class="limiter container">
+                    <div class="limiter pt-1 pr-4 pl-4">
                         <div class="container-table100">
                             <div class="wrap-table100">
                                 @if(count($deseases))
-                                    <table class="table">
+                                    <table class="table table-bordered">
                                         <thead class=" header thead-dark">
                                         <tr class="header">
                                             <th scope="col" class="cell">ID</th>

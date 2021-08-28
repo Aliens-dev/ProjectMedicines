@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Ajouter une maladie')
 
 @section('content')
     <div class="app" id="app">

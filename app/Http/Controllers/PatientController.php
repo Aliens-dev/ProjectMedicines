@@ -7,6 +7,7 @@ use App\Models\Patient;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Kossa\AlgerianCities\Commune;
@@ -47,20 +48,21 @@ class PatientController extends Controller
         $rules = [
             'first_name' => 'required',
             'last_name'  => 'required',
-            'national_id' => 'required',
+            'national_id' => 'required|digits_between:18,18|numeric',
             'birthday'=> 'required|date',
             'age' => 'required|min:1|max:120',
             'state_of_residence' => 'required',
             'city_of_residence' => 'required',
             'address' => 'required',
-            'phone' => 'required',
-            'first_injection_date' => 'required|date',
-            'next_appointment' => 'required|date',
+            'phone' => 'required|regex:/0[567]\d{8}/',
+            'first_injection_date' => 'required|date|after_or_equal:today',
+            'next_appointment' => 'required|date|after:first_injection_date',
             'deseases' => 'sometimes|required',
             'deseases.*' => 'exists:deseases,id'
         ];
 
         $request->validate($rules);
+
         $patient = new Patient();
         $patient->first_name = $request->first_name;
         $patient->last_name = $request->last_name;
@@ -120,15 +122,15 @@ class PatientController extends Controller
         $rules = [
             'first_name' => 'required',
             'last_name'  => 'required',
-            'national_id' => 'required',
+            'national_id' => 'required|digits_between:18,18|numeric',
             'birthday'=> 'required|date',
             'age' => 'required|min:1|max:120',
             'state_of_residence' => 'required',
             'city_of_residence' => 'required',
             'address' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|regex:/0[567]\d{8}/',
             'first_injection_date' => 'required|date',
-            'next_appointment' => 'required|date',
+            'next_appointment' => 'required|date|after:first_injection_date',
             'deseases' => 'sometimes|required',
             'deseases.*' => 'exists:deseases,id'
         ];

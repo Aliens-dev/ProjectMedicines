@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('content')
+@section('title', 'Afficher un utilisateur')
 
+@section('content')
     <div class="app" id="app">
         <div class="wrapper d-flex">
             @include('partials.sidebar')
